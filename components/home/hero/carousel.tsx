@@ -48,6 +48,7 @@ export default function CarouselImage() {
               key={index}
               className={index === currentIndex ? "block" : "hidden"}
             >
+              {/* eslint-disable @typescript-eslint/no-empty-interface  */}
               <img
                 src={image}
                 alt={`Product ${index + 1}`}
