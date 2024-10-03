@@ -8,6 +8,7 @@ import SectionWrap from "@/components/shared/wrap/sectionwrap";
 import SectionHeader from "@/components/shared/header/sectionheader";
 import HeroSection from "@/components/home/hero/hero";
 import Offer1s from "@/components/home/offers/offer1";
+import NewArrival from "@/components/home/newarrival/newarrival";
 
 export default function Home() {
   return (
@@ -16,20 +17,19 @@ export default function Home() {
       <NavBar />
       {/* page content */}
       <PageWrap>
-        {/* Hero Section */}
         <SectionWrap>
           <HeroSection />
+        </SectionWrap>
+        <SectionWrap>
+          <NewArrival />
         </SectionWrap>
         <SectionWrap>
           <Offer1s />
         </SectionWrap>
         <SectionWrap>
-          <SectionHeader
-            title="New Arrivals"
-            description="Scelerisque duis semper vitae eget mattis viverra sem risus vel suspendisse lorem vestibulum pulvinar habitant sed."
-          />
+          <SectionHeader title="Just For You" link="#" />
           <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:col-span-3 gap-4 md:gap-8">
-            {[...Array(8)].map((idx) => (
+            {[...Array(8)].map((_, idx) => (
               <ProductsCard key={idx} />
             ))}
           </ul>

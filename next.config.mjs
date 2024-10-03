@@ -8,6 +8,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "icms-image.slatic.net",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

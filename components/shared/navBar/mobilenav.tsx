@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, ShoppingCart } from "lucide-react";
+import { Menu, ShoppingBasket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -65,8 +65,16 @@ export default function MobileNav({}) {
 
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" aria-label="Cart">
-            <ShoppingCart className="h-6 w-6" />
+          <Button
+            className=" relative text-center text-sm mx-0 md:mx-6 flex"
+            variant="ghost"
+            size="icon"
+            aria-label="Cart"
+          >
+            <ShoppingBasket className="h-[38px] w-[38px] mx-0 md:mx-1" />
+            <div className="h-5 w-5 text-xs absolute text-white grid bg-brandcolor rounded-full place-items-center font-bold p-0.5 top-0 right-0">
+              0
+            </div>
           </Button>
         </SheetTrigger>
         <SheetContent side="right">
@@ -108,6 +116,9 @@ export default function MobileNav({}) {
           </div>
         </SheetContent>
       </Sheet>
+      <div className="md:block hidden">
+        <Button>Sign In</Button>
+      </div>
     </div>
   );
 }

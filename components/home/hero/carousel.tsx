@@ -1,87 +1,160 @@
+"use client";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
 } from "@/components/ui/carousel";
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
-import { useState, useEffect } from "react";
+import Image from "next/image";
+import Autoplay from "embla-carousel-autoplay";
 
-export default function CarouselImage() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [
-    "https://images.unsplash.com/photo-1496226338867-3304059a5aa6?q=80&w=1446&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1533758497366-3282e96d8d80?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1496226338867-3304059a5aa6?q=80&w=1446&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1534120715301-09659b0c0147?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [images.length]);
-
-  const goToPrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
+export default function CarouselView() {
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 md:px-6 md:py-12">
-      <Carousel className="rounded-lg overflow-hidden">
-        <CarouselContent>
-          {images.map((image, index) => (
-            <CarouselItem
-              key={index}
-              className={index === currentIndex ? "block" : "hidden"}
-            >
-              {/* eslint-disable @typescript-eslint/no-empty-interface  */}
-              <img
-                src={image}
-                alt={`Product ${index + 1}`}
-                width="600"
-                height="400"
-                className="object-cover w-full aspect-[3/2]"
-              />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious
-          onClick={goToPrevious}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-white hover:text-gray-300 focus:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-        >
-          <ChevronLeftIcon className="w-8 h-8" />
-        </CarouselPrevious>
-        <CarouselNext
-          onClick={goToNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 text-white hover:text-gray-300 focus:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-        >
-          <ChevronRightIcon className="w-8 h-8" />
-        </CarouselNext>
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-          {images.map((_, index) => (
-            <div
-              key={index}
-              className={`w-3 h-3 rounded-full ${
-                index === currentIndex ? "bg-white" : "bg-white/50"
-              }`}
+    <section className="w-full h-full text-white">
+      <div className="grid gap-4 grid-cols-1 md:grid-cols-5">
+        <div className="hidden md:flex col-span-1 flex-col gap-y-2 mt-8 md:h-[300px] lg:h-[360px]">
+          <div className="h-56 ripple-container relative group w-full rounded-xl">
+            <Image
+              alt="offer"
+              height={2000}
+              width={2000}
+              className="h-56 w-full rounded-xl bg-center object-cover"
+              src={
+                "https://images.unsplash.com/photo-1695459590088-d6fd3cc97cfa?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              }
             />
-          ))}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex flex-col justify-end">
+              <h1 className="text-md font-semibold">5% off on mens shoes</h1>
+              <p className="text-sm font-medium">Gamma Store</p>
+            </div>
+          </div>
+          <div className="h-56 ripple-container relative group w-full rounded-xl">
+            <Image
+              alt="offer"
+              height={2000}
+              width={2000}
+              className="h-56 w-full rounded-xl bg-center object-cover"
+              src={
+                "https://images.unsplash.com/photo-1709551264845-e9dddd775388?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              }
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex flex-col justify-end">
+              <h1 className="text-md font-semibold">10% off on Facewash</h1>
+              <p className="text-sm font-medium">Delta Store</p>
+            </div>
+          </div>
         </div>
-      </Carousel>
-    </div>
+        <div className="md:col-span-3">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                playOnInit: true,
+                delay: 3000,
+              }),
+            ]}
+            className="md:mt-8"
+          >
+            <CarouselContent>
+              <CarouselItem>
+                <div className="relative overflow-hidden rounded-lg shadow-lg h-44 md:h-[300px] lg:h-[360px]">
+                  <Image
+                    src="https://icms-image.slatic.net/images/ims-web/a70da661-25ff-45d3-84c8-4144c4db85d6.jpg"
+                    alt="Product 1"
+                    width={2000}
+                    height={2000}
+                    className="absolute hidden lg:block inset-0 h-full w-full object-cover bg-center rounded-lg"
+                  />
+                  <Image
+                    src="https://icms-image.slatic.net/images/ims-web/b5ae47b5-3b77-4c21-abe6-b161b1a9c0b4.jpg"
+                    alt="Product 1"
+                    width={2000}
+                    height={2000}
+                    className="absolute lg:hidden inset-0 h-full w-full object-cover bg-center rounded-lg"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent p-4 flex flex-col justify-end"></div>
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <div className="relative overflow-hidden rounded-lg shadow-lg h-44 md:h-[300px] lg:h-[360px]">
+                  <Image
+                    src="https://icms-image.slatic.net/images/ims-web/e9e21645-a1eb-4f62-9705-d107a6061a2b.jpg"
+                    alt="Product 2"
+                    width={2000}
+                    height={2000}
+                    className="absolute hidden lg:block inset-0 h-full w-full object-cover bg-center rounded-lg"
+                  />
+                  <Image
+                    src="https://icms-image.slatic.net/images/ims-web/39ed5434-24ad-461f-93f7-df1384a67d33.jpg"
+                    alt="Product 2"
+                    width={2000}
+                    height={2000}
+                    className="absolute lg:hidden block inset-0 h-full w-full object-cover bg-center rounded-lg"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent p-4 flex flex-col justify-end"></div>
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <div className="relative overflow-hidden rounded-lg shadow-lg h-44 md:h-[300px] lg:h-[360px]">
+                  <Image
+                    src="https://icms-image.slatic.net/images/ims-web/dc8daebb-d3a3-4c65-89a4-719052e1bb05.jpg"
+                    alt="Product 1"
+                    width={2000}
+                    height={2000}
+                    className="absolute hidden lg:block inset-0 h-full w-full object-cover bg-center rounded-lg"
+                  />
+                  <Image
+                    src="https://icms-image.slatic.net/images/ims-web/2fd3369d-f5e3-4de1-ac6a-10971b5d3925.jpg"
+                    alt="Product 1"
+                    width={2000}
+                    height={2000}
+                    className="absolute lg:hidden inset-0 h-full w-full object-cover bg-center rounded-lg"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent p-4 flex flex-col justify-end"></div>
+                </div>
+              </CarouselItem>
+            </CarouselContent>
+          </Carousel>
+        </div>
+        <div className="hidden md:flex col-span-1 flex-col gap-y-2 mt-8 md:h-[300px] lg:h-[360px]">
+          <div className="h-56 ripple-container relative group w-full rounded-xl">
+            <Image
+              alt="offer"
+              height={2000}
+              width={2000}
+              className="h-56 w-full rounded-xl bg-center object-cover"
+              src={
+                "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              }
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex flex-col justify-end">
+              <h1 className="text-md font-semibold">50% off for kids</h1>
+              <p className="text-sm font-medium">Alpha Store</p>
+            </div>
+          </div>
+          <div className="h-56 ripple-container relative group w-full rounded-xl">
+            <Image
+              alt="offer"
+              height={2000}
+              width={2000}
+              className="h-56 w-full rounded-xl bg-center object-cover"
+              src={
+                "https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              }
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex flex-col justify-end">
+              <h1 className="text-md font-semibold">
+                20% off for Red Polka Dot Dress
+              </h1>
+              <p className="text-sm font-medium">Beta Store</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Offer1s() {
   return (
-    <div className="relative md:h-[60vh] overflow-hidden rounded-xl">
+    <div className="relative  overflow-hidden rounded-xl">
       <div className="absolute inset-0 bg-yellow-300 z-0">
         <div className="absolute right-0 top-0 w-3/4 h-full bg-yellow-200 rounded-bl-[100%]" />
       </div>
