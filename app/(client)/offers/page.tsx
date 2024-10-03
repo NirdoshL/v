@@ -2,9 +2,7 @@ import ProductsCard from "@/components/home/product/card";
 import SectionHeader from "@/components/shared/header/sectionheader";
 import React from "react";
 
-type Props = {};
-
-export default function ProductsPage({}: Props) {
+export default function ProductsPage() {
   return (
     <div>
       <SectionHeader title="Offers" linkclass="hidden" />

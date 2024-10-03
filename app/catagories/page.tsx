@@ -2,9 +2,7 @@ import ProductsCard from "@/components/home/product/card";
 import SectionHeader from "@/components/shared/header/sectionheader";
 import React from "react";
 
-type Props = {};
-
-export default function CatagoryPage({}: Props) {
+export default function CatagoryPage() {
   return (
     <div>
       <SectionHeader title="Catagory" linkclass="hidden" />
