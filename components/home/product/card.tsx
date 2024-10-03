@@ -6,7 +6,7 @@ import React from "react";
 export default function ProductsCard() {
   return (
     <Link className="my-2" href={``}>
-      <section className="h-[280px] md:h-[420px] min-w-[190px] md:min-w-[210px] pb-10 text-start transform duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden border rounded">
+      <section className="h-[280px] md:h-[420px] min-w-[180px] md:min-w-[210px] pb-10 text-start transform duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden border rounded">
         <Image
           className=" h-[140px] md:h-[260px] 2xl:h-[280px] w-full object-center object-cover rounded"
           src={

@@ -10,7 +10,7 @@ export default function FlashSale() {
       <div className="flex justify-between gap-4">
         {[...Array(3)].map((_, idx) => (
           <Link key={idx} className="sm:hidden" href={``}>
-            <section className="h-[160px] min-w-[115px] max-w-[200px] pb-10 text-start transform duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden border rounded">
+            <section className="h-[160px] min-w-[105px] max-w-[120px] pb-10 text-start transform duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden border rounded">
               <Image
                 className=" h-[100px] w-full object-center object-cover rounded"
                 src={

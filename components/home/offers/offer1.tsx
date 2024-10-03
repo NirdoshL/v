@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Offer1s() {
   return (
-    <div className="relative  overflow-hidden rounded-xl">
+    <div className="relative overflow-hidden rounded-xl">
       <div className="absolute inset-0 bg-yellow-300 z-0">
         <div className="absolute right-0 top-0 w-3/4 h-full bg-yellow-200 rounded-bl-[100%]" />
       </div>
@@ -14,7 +14,7 @@ export default function Offer1s() {
             alt="Child in winter coat sitting on snow"
             width={600}
             height={600}
-            className="object-cover w-full h-[40vh]  md:h-[60vh] "
+            className="object-cover w-full h-[30vh] md:h-[60vh] "
           />
         </div>
         <div className="w-full md:w-1/2 p-8 md:p-12">
@@ -26,7 +26,7 @@ export default function Offer1s() {
             <br />
             Grab Them Now!
           </h2>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 mb-6 hidden md:block">
             Cum sed purus felis, morbi diam mauris sollicitudin id aenean sed
             fusce pellentesque enim viverra luctus enim suspendisse feugiat
             convallis imperdiet.
