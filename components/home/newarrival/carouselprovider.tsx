@@ -26,7 +26,7 @@ export function CarouselProvider({ array }: props) {
       }}
       className="w-full hidden lg:block lg:max-w-[820px] xl:max-w-[1120px] 2xl:max-w-[1440px] mx-auto"
     >
-      <CarouselContent>
+      <CarouselContent className="">
         {array.map((content, index) => (
           <CarouselItem key={index} className="lg:basis-1/4 xl:basis-1/5">
             <div className="p-1">

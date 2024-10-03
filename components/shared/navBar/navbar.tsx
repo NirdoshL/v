@@ -1,7 +1,5 @@
 import Link from "next/link";
 import MobileNav from "./mobilenav";
-import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
 
 export default function NavBar() {
   return (
@@ -36,12 +34,7 @@ export default function NavBar() {
             Contact Us
           </Link>
         </nav>
-        <Input
-          className={cn(
-            "md:hidden placeholder:text-center w-full h-10 relative text-sm sm:text-base z-10 border-none bg-transparent text-black rounded-full focus:outline-none focus:ring-0 pl-4 sm:pl-10 pr-20 mx-2"
-          )}
-          placeholder="Search By Name"
-        />
+
         <MobileNav />
       </div>
     </header>

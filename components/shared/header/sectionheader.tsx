@@ -8,6 +8,7 @@ type Props = {
   title: string;
   link?: string;
   linkclass?: string;
+  mainClassName?: string;
 };
 
 export default function SectionHeader({
@@ -15,9 +16,15 @@ export default function SectionHeader({
   linkclass,
   title,
   link,
+  mainClassName,
 }: Props) {
   return (
-    <div className="flex flex-row justify-between max-w-[1400px] items-center text-center px-2 pt-4 my-3 lg:my-8">
+    <div
+      className={cn(
+        "flex flex-row justify-between max-w-[1400px] items-center text-center px-2 pt-4 my-3 lg:my-8",
+        mainClassName
+      )}
+    >
       <h1
         className={cn(
           " font-bold text-xl lg:text-3xl capitalize tracking-wide w-full text-start",
