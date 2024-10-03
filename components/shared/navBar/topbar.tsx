@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { MapPin, Ticket } from "lucide-react";
+import { Ticket } from "lucide-react";
 
 function TopBar() {
   return (
