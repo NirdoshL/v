@@ -11,6 +11,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
+import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 const cartItems = [
   { id: 1, name: "Product 1", price: 19.99, quantity: 2 },
@@ -18,6 +22,7 @@ const cartItems = [
   { id: 3, name: "Product 3", price: 39.99, quantity: 3 },
 ];
 export default function MobileNav({}) {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -35,29 +40,69 @@ export default function MobileNav({}) {
         </SheetTrigger>
         <SheetContent side="right" className="w-full">
           <SheetHeader>
-            <SheetTitle>Menu</SheetTitle>
+            <SheetTitle>Vastra Wears</SheetTitle>
+            <Card className="rounded">
+              <CardContent className="w-full h-[20vh] px-0 py-0 rounded">
+                <Image
+                  src={
+                    "https://icms-image.slatic.net/images/ims-web/b5ae47b5-3b77-4c21-abe6-b161b1a9c0b4.jpg"
+                  }
+                  alt={"image"}
+                  height={1000}
+                  width={1000}
+                  className="h-full w-full object-cover rounded"
+                />
+              </CardContent>
+            </Card>
           </SheetHeader>
           <nav className="flex flex-col space-y-4 mt-8">
             <Link
               href="/products"
-              className="text-gray-600 hover:text-primary"
+              className={cn(
+                " hover:text-primary bg-gray-100 px-4 py-2 rounded",
+                pathname === "/products"
+                  ? "text-gray-900 font-bold"
+                  : "font-semibold text-gray-600"
+              )}
               onClick={() => setIsOpen(false)}
             >
               Products
             </Link>
             <Link
               href="/categories"
-              className="text-gray-600 hover:text-primary"
+              className={cn(
+                " hover:text-primary bg-gray-100 px-4 py-2 rounded",
+                pathname === "/categories"
+                  ? "text-gray-900 font-bold"
+                  : "font-semibold text-gray-600"
+              )}
               onClick={() => setIsOpen(false)}
             >
               Categories
             </Link>
             <Link
-              href="/deals"
-              className="text-gray-600 hover:text-primary"
+              href="/offers"
+              className={cn(
+                " hover:text-primary bg-gray-100 px-4 py-2 rounded",
+                pathname === "/offers"
+                  ? "text-gray-900 font-bold"
+                  : "font-semibold text-gray-600"
+              )}
               onClick={() => setIsOpen(false)}
             >
-              Deals
+              Offers
+            </Link>
+            <Link
+              href="/login"
+              className={cn(
+                " hover:text-primary bg-gray-100 px-4 py-2 rounded",
+                pathname === "/login"
+                  ? "text-gray-900 font-bold"
+                  : "font-semibold text-gray-600"
+              )}
+              onClick={() => setIsOpen(false)}
+            >
+              Login
             </Link>
           </nav>
         </SheetContent>
