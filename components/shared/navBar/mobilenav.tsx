@@ -120,7 +120,6 @@ export default function MobileNav({}) {
             <div className="h-5 w-5 text-xs absolute text-white grid bg-green-500 rounded-full place-items-center font-bold p-0.5 top-0 right-0">
               0
             </div>
-
             <div className="absolute top-0 right-0 h-5 w-5 rounded-full border-2 border-white animate-ping"></div>
           </Button>
         </SheetTrigger>
