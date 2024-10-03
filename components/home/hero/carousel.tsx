@@ -9,7 +9,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 export default function CarouselView() {
   return (
-    <section className="w-full h-full text-white">
+    <section className="w-full h-full md:-mt-8 text-white">
       <div className="grid gap-4 grid-cols-1 md:grid-cols-5">
         <div className="hidden md:flex col-span-1 flex-col gap-y-2 mt-8 md:h-[300px] lg:h-[360px]">
           <div className="h-56 ripple-container relative group w-full rounded-xl">

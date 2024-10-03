@@ -6,7 +6,7 @@ export default function PageWrap({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex-grow scroll-smooth min-h-screen w-full h-full bg-brandcolor/5">
+    <main className="flex-grow max-w-[1600px] mx-auto scroll-smooth min-h-screen w-full h-full">
       {children}
     </main>
   );

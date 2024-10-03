@@ -21,7 +21,7 @@ export default function SectionHeader({
   return (
     <div
       className={cn(
-        "flex flex-row justify-between max-w-[1400px] items-center text-center px-2 pt-4 my-3 lg:my-8",
+        "flex flex-row justify-between max-w-[1600px] items-center text-center px-2 pt-4 my-3 lg:my-4",
         mainClassName
       )}
     >

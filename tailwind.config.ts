@@ -74,10 +74,27 @@ const config: Config = {
             height: "0",
           },
         },
+        borderPing: {
+          "0%": {
+            transform: "scale(1)",
+            opacity: "1",
+            "border-width": "2px",
+          },
+          "75%": {
+            transform: "scale(1.5)",
+            opacity: "0",
+            "border-width": "4px",
+          },
+          "100%": {
+            opacity: "0",
+            "border-width": "0px",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "border-ping": "borderPing 1.5s cubic-bezier(0, 0, 0.2, 1) infinite",
       },
     },
   },

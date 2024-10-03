@@ -6,9 +6,9 @@ import React from "react";
 export default function ProductsCard() {
   return (
     <Link className="my-2" href={``}>
-      <section className="h-[280px] md:h-[420px] min-w-[180px] md:min-w-[210px] pb-10 text-start transform duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden border rounded">
+      <section className="h-[280px] md:h-[360px] min-w-[180px] md:min-w-[210px] pb-10 text-start transform duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden border rounded">
         <Image
-          className=" h-[140px] md:h-[260px] 2xl:h-[280px] w-full object-center object-cover rounded"
+          className=" h-[140px] md:h-[200px] 2xl:h-[220px] w-full object-center object-cover rounded"
           src={
             "https://images.unsplash.com/photo-1496226338867-3304059a5aa6?q=80&w=1446&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           }

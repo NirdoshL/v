@@ -6,7 +6,6 @@ import SectionWrap from "@/components/shared/wrap/sectionwrap";
 import SectionHeader from "@/components/shared/header/sectionheader";
 import HeroSection from "@/components/home/hero/hero";
 import Offer1s from "@/components/home/offers/offer1";
-import NewArrival from "@/components/home/newarrival/newarrival";
 import FlashSale from "@/components/flashsale/flashsale";
 
 export default function Home() {
@@ -15,12 +14,15 @@ export default function Home() {
       <SectionWrap>
         <HeroSection />
         <FlashSale />
-      </SectionWrap>
-      <NewArrival />
-      <SectionWrap>
+        <SectionHeader title="New Arrival" link="#" />
+        <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:col-span-3 gap-4 md:gap-8">
+          {[...Array(5)].map((_, idx) => (
+            <ProductsCard key={idx} />
+          ))}
+        </ul>
         <Offer1s />
         <SectionHeader title="Just For You" link="#" />
-        <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:col-span-3 gap-4 md:gap-8">
+        <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:col-span-3 gap-4 md:gap-8">
           {[...Array(8)].map((_, idx) => (
             <ProductsCard key={idx} />
           ))}
