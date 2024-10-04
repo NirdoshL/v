@@ -183,9 +183,12 @@ export default function MobileNav({}) {
                   .toFixed(2)}
               </p>
             </div>
-            <Button className="bg-brandcolor hover:bg-brandcolor/90 focus:bg-brandcolor/80 w-full mt-4">
+            <Link
+              href={"/checkout/1"}
+              className="inline-flex py-3 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-white bg-brandcolor hover:bg-brandcolor/90 focus:bg-brandcolor/80 w-full mt-4"
+            >
               Checkout
-            </Button>
+            </Link>
           </div>
         </SheetContent>
       </Sheet>
