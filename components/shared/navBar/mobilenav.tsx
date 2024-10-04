@@ -126,7 +126,7 @@ export default function MobileNav({}) {
             <div className="absolute top-0 right-0 h-5 w-5 rounded-full border-2 border-white animate-ping"></div>
           </Button>
         </SheetTrigger>
-        <SheetContent side="right">
+        <SheetContent side="right" className="w-full">
           <SheetHeader>
             <SheetTitle>Order Cart</SheetTitle>
           </SheetHeader>
