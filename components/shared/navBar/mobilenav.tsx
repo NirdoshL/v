@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, ShoppingBasket } from "lucide-react";
+import { Menu, Minus, Plus, ShoppingBasket, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -15,11 +15,14 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const cartItems = [
   { id: 1, name: "Product 1", price: 19.99, quantity: 2 },
   { id: 2, name: "Product 2", price: 29.99, quantity: 1 },
   { id: 3, name: "Product 3", price: 39.99, quantity: 3 },
+  { id: 4, name: "Product 4", price: 39.99, quantity: 3 },
+  { id: 5, name: "Product 5", price: 39.99, quantity: 3 },
 ];
 export default function MobileNav({}) {
   const pathname = usePathname();
@@ -123,49 +126,76 @@ export default function MobileNav({}) {
             <div className="absolute top-0 right-0 h-5 w-5 rounded-full border-2 border-white animate-ping"></div>
           </Button>
         </SheetTrigger>
-        <SheetContent side="right" className="w-full">
+        <SheetContent side="right">
           <SheetHeader>
-            <SheetTitle>Your Cart</SheetTitle>
+            <SheetTitle>Order Cart</SheetTitle>
           </SheetHeader>
-          <div className="mt-8">
+          <ScrollArea className="w-full h-[60vh] overflow-y-auto mt-8">
             {cartItems.map((item) => (
               <div
                 key={item.id}
-                className="flex justify-between items-center mb-4"
+                className=" flex items-center gap-6 rounded-lg bg-background p-4 shadow-sm transition-all duration-300 border hover:shadow-md"
               >
-                <div>
-                  <h3 className="font-semibold">{item.name}</h3>
-                  <p className="text-sm text-gray-500">
-                    Qty: {item.quantity} x ${item.price.toFixed(2)}
-                  </p>
+                <div className="flex-shrink-0">
+                  <Image
+                    src="https://images.unsplash.com/photo-1625697674238-a25bf60b657b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Product Image"
+                    width={100}
+                    height={100}
+                    className="aspect-square rounded-md object-cover"
+                  />
                 </div>
-                <p className="font-semibold">
-                  ${(item.quantity * item.price).toFixed(2)}
-                </p>
+                <div className="flex-1 space-y-2">
+                  <h3 className="text-lg font-semibold">{item.name}</h3>
+                  <div className="flex flex-col items-start gap-2">
+                    <span className="text-xs font-bold text-gray-600">
+                      Qty: {item.quantity} x Rs {item.price.toFixed(2)}
+                    </span>
+                    <span className="text-sm font-medium text-muted-foreground">
+                      Total: Rs {(item.quantity * item.price).toFixed(2)}
+                    </span>
+                  </div>
+                  <div className="flex gap-2 justify-between items-center">
+                    <Button className="bg-background p-1.5 border border-green-500">
+                      <Plus className="h-4 w-4 text-green-500" />
+                    </Button>
+                    <Button className="bg-background p-1.5 border border-blue-500">
+                      <Minus className="h-4 w-4 text-blue-500" />
+                    </Button>
+                    <Button className="bg-background p-1.5 border border-red-500">
+                      <Trash2 className="h-4 w-4 text-red-500" />
+                    </Button>
+                  </div>
+                </div>
               </div>
             ))}
-            <div className="mt-6 pt-4 border-t border-gray-200">
-              <div className="flex justify-between items-center">
-                <h3 className="font-semibold">Total</h3>
-                <p className="font-semibold">
-                  $
-                  {cartItems
-                    .reduce(
-                      (total, item) => total + item.quantity * item.price,
-                      0
-                    )
-                    .toFixed(2)}
-                </p>
-              </div>
-              <Button className="w-full mt-4">Checkout</Button>
+          </ScrollArea>
+          <div className="mt-6 pt-4 border-t border-gray-200">
+            <div className="flex justify-between items-center">
+              <h3 className="font-semibold">Total</h3>
+              <p className="font-semibold">
+                Rs
+                {cartItems
+                  .reduce(
+                    (total, item) => total + item.quantity * item.price,
+                    0
+                  )
+                  .toFixed(2)}
+              </p>
             </div>
+            <Button className="bg-brandcolor hover:bg-brandcolor/90 focus:bg-brandcolor/80 w-full mt-4">
+              Checkout
+            </Button>
           </div>
         </SheetContent>
       </Sheet>
       <div className="md:block hidden">
-        <Button className="px-4 py-2 bg-white hover:bg-white/90 text-brandcolor font-semibold tracking-wide">
+        <Link
+          href={"/login"}
+          className="px-4 rounded-md py-2 bg-white hover:bg-white/90 text-brandcolor text-sm font-semibold tracking-wide"
+        >
           Sign In
-        </Button>
+        </Link>
       </div>
     </div>
   );
