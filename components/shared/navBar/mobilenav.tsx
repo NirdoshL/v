@@ -27,6 +27,7 @@ const cartItems = [
 export default function MobileNav({}) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenCart, setIsOpenCart] = useState(false);
 
   return (
     <div className="flex items-center space-x-4">
@@ -111,7 +112,7 @@ export default function MobileNav({}) {
         </SheetContent>
       </Sheet>
 
-      <Sheet>
+      <Sheet open={isOpenCart} onOpenChange={setIsOpenCart}>
         <SheetTrigger asChild>
           <Button
             className=" relative text-center text-sm mx-0 md:mx-6 flex hover:bg-transparent"
@@ -185,6 +186,7 @@ export default function MobileNav({}) {
             </div>
             <Link
               href={"/checkout/1"}
+              onClick={() => setIsOpenCart(false)}
               className="inline-flex py-3 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-white bg-brandcolor hover:bg-brandcolor/90 focus:bg-brandcolor/80 w-full mt-4"
             >
               Checkout
