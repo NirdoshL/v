@@ -12,9 +12,12 @@ function TopBar() {
         >
           <Ticket className="h-5 w-5 text-center bottom-0 font-bold text-slate-800 md:text-secondary md:mr-1" />
           <p className="w-full md:w-[200px] truncate">
-            <span className=" text-slate-800 md:text-secondary font-bold px-0.5">
+            <Link
+              href={"/coupons"}
+              className=" text-slate-800 md:text-secondary font-bold px-0.5"
+            >
               Available Coupons
-            </span>
+            </Link>
           </p>
         </Link>
       </div>

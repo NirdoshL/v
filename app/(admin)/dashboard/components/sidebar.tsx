@@ -27,7 +27,7 @@ import {
   NavItem,
 } from "@/navigation/sidebar-items/sidebarItems";
 
-type GetVariantFunction = (route: string) => "default" | "ghost";
+type GetVariantFunction = (route: string) => "default" | "ghost" | "ghostbrand";
 
 function SidebarHeading({
   heading,
@@ -86,7 +86,7 @@ function SidebarItemWithChildren({
           }),
           isCollapsed && "hide-accordion-icon",
           "flex items-center justify-between hover:no-underline py-0 w-9 h-9",
-          isActive && "bg-accent"
+          isActive && "bg-brandcolor hover:bg-brandcolor/80"
         )}
       >
         {isCollapsed ? (

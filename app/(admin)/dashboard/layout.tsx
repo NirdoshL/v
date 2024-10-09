@@ -24,6 +24,7 @@ import { cn } from "@/lib/utils";
 import { AccountSwitcher } from "./components/account-switcher";
 import Sidebar from "./components/sidebar";
 import { UserNav } from "./components/user-nav";
+import Link from "next/link";
 
 interface LayoutProps {
   readonly children: ReactNode;
@@ -71,14 +72,32 @@ export default function Layout({ children }: LayoutProps) {
             <AccountSwitcher isCollapsed={isCollapsed} />
           </div>
           <Separator />
-          {/* <ScrollArea className="overflow-y-auto h-[90vh]"> */}
           <Sidebar isCollapsed={isCollapsed} />
-          {/* </ScrollArea> */}
         </ResizablePanel>
         <ResizableHandle className="hidden lg:flex" withHandle />
 
         <ResizablePanel defaultSize={!isMediumOrSmaller ? 82 : 100}>
           <div className="flex items-center justify-between px-4 py-2 lg:justify-end">
+            <div className="lg:flex gap-4 hidden mr-auto">
+              <Link
+                href={"#"}
+                className="text-sm px-2 py-1 bg-gray-100 text-gray-800 rounded"
+              >
+                Orders
+              </Link>
+              <Link
+                href={"#"}
+                className="text-sm px-2 py-1 bg-gray-100 text-gray-800 rounded"
+              >
+                Analytics
+              </Link>
+              <Link
+                href={"#"}
+                className="text-sm px-2 py-1 bg-gray-100 text-gray-800 rounded"
+              >
+                Reports
+              </Link>
+            </div>
             <Button
               onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
               variant="default"
@@ -86,7 +105,6 @@ export default function Layout({ children }: LayoutProps) {
             >
               <Menu className="size-6" />
             </Button>
-
             <div className="flex gap-2">
               <div className="md:block lg:hidden">
                 <AccountSwitcher isCollapsed />
