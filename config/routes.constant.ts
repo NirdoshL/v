@@ -27,7 +27,7 @@ export const footerRoutes = [
   [
     {
       name: "About Us",
-      href: "",
+      href: "/about",
     },
     {
       name: "Contact Us",

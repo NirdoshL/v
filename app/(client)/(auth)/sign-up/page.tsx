@@ -3,7 +3,7 @@ import React from "react";
 
 export default function SignupPage() {
   return (
-    <div className="py-16">
+    <div className="md:py-16">
       <div className="flex bg-white rounded-md overflow-hidden mx-auto max-w-sm lg:max-w-6xl">
         <div
           className="hidden lg:block lg:w-1/2 bg-cover"
@@ -12,14 +12,14 @@ export default function SignupPage() {
           }}
         ></div>
         <div className="w-full p-8 lg:w-1/2">
-          <h2 className="text-2xl font-semibold text-primary text-center">
+          <h2 className="text-4xl font-semibold text-primary text-center">
             Vastra Wears
           </h2>
           <p className="text-xl text-gray-600 text-center">
             Your Stylish Secret.
           </p>
 
-          <div className="mt-4">
+          <div className="mt-12">
             <label className="block text-primary text-sm font-bold mb-2">
               Email Address
             </label>

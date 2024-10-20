@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,6 +12,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
+import EsewaPay from "@/components/payment/esewa";
+import KhaltiPay from "@/components/payment/khalti";
 
 export default function CheckoutPage() {
   const [couponCode, setCouponCode] = useState("");
@@ -29,7 +30,6 @@ export default function CheckoutPage() {
   const subtotal = 99.99;
   const shipping = 9.99;
   const total = subtotal + shipping - discount;
-
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-6">Vastra Checkout</h1>
@@ -227,9 +227,22 @@ export default function CheckoutPage() {
                   </Button>
                 </div>
               </div>
-              <Button className="w-full bg-brandcolor hover:bg-brandcolor/80 focus:bg-brandcolor/90">
-                Place Order
-              </Button>
+              <EsewaPay
+                name="Nirdosh"
+                email="nirdoshlamixane001@gmail.com"
+                place="Damak"
+                street1="Birbal Chowk"
+                street2="Baragharey Janey bato"
+                cartId="670ca6c8f3830cf3edc6b9a0"
+              />
+              <KhaltiPay
+                name="Nirdosh"
+                email="nirdoshlamixane001@gmail.com"
+                place="Damak"
+                street1="Birbal Chowk"
+                street2="Baragharey Janey bato"
+                cartId="670ca6c8f3830cf3edc6b9a0"
+              />
             </CardFooter>
           </Card>
         </div>

@@ -9,11 +9,6 @@ import {
 export default function AvailablePaymentMethods() {
   const paymentMethods = [
     {
-      name: "FonPay",
-      iconImage: "",
-      description: "Pay securely with your FonPay",
-    },
-    {
       name: "E-Sewa",
       iconImage: "",
       description: "Fast and secure payments with E-Sewa",
